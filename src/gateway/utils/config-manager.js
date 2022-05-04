@@ -29,12 +29,9 @@ function getSessionOptions(data) {
         resave: false // 'false' is preferable
     };
 
-
-
     if (isModeProduction()) {
         options.cookie.secure = true;
         options.cookie.sameSite = 'none';
-
         options.store = new data.pgSession({
             pool : data.pool,                // Connection pool
             tableName : 'session'   // Use another table-name than the default "session" one

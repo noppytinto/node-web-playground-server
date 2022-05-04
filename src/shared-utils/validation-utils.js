@@ -22,11 +22,24 @@ function authorizeRequest(req, res, next) {
         next();
     } catch (err) {
         console.log('REQUEST NOT AUTHORIZED: user not authorized');
-        res.status(401).send({error: err.message});
+        return res.status(401).send({error: err.message});
     }
 }
 
+function checkUserIsLogged(req, res, next) {
+    try {
+        if (!req.session.userIsLogged)
+            throw new Error('user not logged in');
+
+        console.log('REQUEST AUTHORIZED: user is logged in');
+        next();
+    } catch (err) {
+        console.log('REQUEST NOT AUTHORIZED: user not logged in');
+        return res.status(401).send({error: err.message});
+    }
+}
 
 module.exports = {
     authorizeRequest,
+    checkUserIsLogged,
 }

@@ -3,10 +3,10 @@ class User {
     #email;
     #password;
 
-    constructor(username, email, password = '') {
-        this.#username = username;
-        this.#email = email;
-        this.#password = password;
+    constructor(builder) {
+        this.#username = builder.username;
+        this.#email = builder.email;
+        this.#password = builder.password;
     }
 
     getUsername() {
@@ -17,8 +17,10 @@ class User {
         return this.#email;
     }
 
-    
+    getPassword() {
+        return this.#password;
+    }
 
-}
+}// User
 
 module.exports = User;
