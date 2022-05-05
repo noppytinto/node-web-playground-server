@@ -17,25 +17,25 @@ router.get(
 );
 
 router.post('/login',
-    // validationUtils.authorizeRequest,
+    validationUtils.authorizeRequest,
     // validationUtils.checkUserIsLogged,
     adminController.login
 );
 
 router.get('/logout',
-    // validationUtils.authorizeRequest,
+    validationUtils.authorizeRequest,
     validationUtils.checkUserIsLogged,
     adminController.logout
 );
 
 router.post('/signup',
-    // validationUtils.authorizeRequest,
+    validationUtils.authorizeRequest,
     adminController.signUp
 );
 
 // TODO: POST delete user
 router.delete('/delete-user',
-    // validationUtils.authorizeRequest,
+    validationUtils.authorizeRequest,
     validationUtils.checkUserIsLogged,
     adminController.deleteUser
 );
