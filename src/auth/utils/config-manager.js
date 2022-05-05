@@ -66,7 +66,7 @@ function isModeDevelopment() {
 }
 
 function getDatabaseUrl() {
-    return process.env.DATABASE_URL;
+    return process.env.HEROKU_POSTGRESQL_JADE_URL;
 }
 
 function getDatabaseOptions() {
